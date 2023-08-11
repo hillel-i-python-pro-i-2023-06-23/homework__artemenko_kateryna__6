@@ -5,3 +5,5 @@ services:
   app:
     volumes:
       - ./files_input:/wd/files_input:ro
+
+    user: "1000"
