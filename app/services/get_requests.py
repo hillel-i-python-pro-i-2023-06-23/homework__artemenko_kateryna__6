@@ -1,16 +1,8 @@
 import requests
 
 
-def get_astronaut_count():
+def get_astronaut():
     url = "http://api.open-notify.org/astros.json"
-
-    response = requests.get(url)
-    if response.status_code == 200:
-        data = response.json()
-        astronaut_count = data["number"]
-        return astronaut_count
-
-
-def print_count(count):
-    if count is not None:
-        print(f"{count} astronauts on the station.")
+    r = requests.get(url, auth=("user", "pass"))
+    numbers_astronauts = len(r.json()["people"])
+    print(f"Currently {numbers_astronauts}astronauts.")
